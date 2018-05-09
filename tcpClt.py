@@ -1,11 +1,16 @@
 #!/usr/bin/python3
 
-# usage:  python3 tcpClt.py
+# usage:  python3 tcpClt2.py 192.168.1.123
 #              exit    to quit
 
+import sys
 import socket
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-host = socket.gethostbyname('localhost')
+if len(sys.argv) == 1:
+    host = socket.gethostbyname('localhost')
+else:
+    host = socket.gethostbyname(sys.argv[1])
+
 port = 5150
 
 print('enter text ''exit'' to quit')
